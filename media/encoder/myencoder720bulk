@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#echo "Declare Input-File"
+#read INPUT
+#echo "Declare Output-File"
+#read OUTPUT
+mkdir "720_encoded"
+
+for f in *mkv
+
+do
+
+HandBrakeCLI -i "$f" -f mkv -o "720_encoded/[720p]$f" -e x264 -q 20 --encoder-preset ultrafast --encoder-tune animation --encoder-profile high -m -E vorbis --mixdown stereo -B 99 -l 720 --non-anamorphic --keep-display-aspect --all-subtitles --subtitle-default --all-audio
+
+done
