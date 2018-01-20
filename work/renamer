@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Only works when there is exact one file is in the videofolder.
+# Needs the videofolder-path as argument
+
+count="`ls $1 | wc -l`"
+fck="`ls $1 | rev | cut -d. -f1`"
+fckf="`echo $fck"." | rev`"
+genn="`ls $1`"
+gent="`date +"%S_%d_%m_%Y"`"
+echo $count
+
+if [ $count -ne 1 ]
+then
+	echo "abort"
+	exit 0
+else
+	echo "Count OK"
+	echo "The FileFormat is: $fckf"
+	echo "mv $genn to $gent$fckf?"
+	read
+	mv $1$genn $1$gent$fckf 
+fi
+
+
