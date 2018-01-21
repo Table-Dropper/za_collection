@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Works with multiple Files
+# Needs the videofolder-path as argument
+# Unique Name generator needs to be fixed
+
+# Generates a "unique" name
+gent="`date +"%S_%d_%m_%Y_%N"`"
+
+for f in $1*
+do	
+	echo "`basename $f | rev | cut -d. -f1 | rev`"
+	echo " mv `basename $f` to $gent"."`basename $f | rev | cut -d. -f1 | rev`?"
+	read
+done
